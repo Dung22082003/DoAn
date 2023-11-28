@@ -9,5 +9,7 @@ namespace DoAn.Models
         }
          
     public DbSet<Menu> Menus {  get; set; }
+    public DbSet<AboutUs> AboutUs {  get; set; }
+    public DbSet<Service> Services {  get; set; }
     }
 }
