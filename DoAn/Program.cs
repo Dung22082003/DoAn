@@ -1,12 +1,7 @@
 using DoAn.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
-namespace DoAn
-{
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
+
 
             var builder = WebApplication.CreateBuilder(args);
             var connection = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -30,12 +25,17 @@ namespace DoAn
             app.UseRouting();
 
             app.UseAuthorization();
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute(
+      name: "areas",
+      pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+    );
+});
 
-            app.MapControllerRoute(
+app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
             app.Run();
-        }
-    }
-}
+
