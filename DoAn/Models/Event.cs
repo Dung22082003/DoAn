@@ -8,12 +8,12 @@ namespace DoAn.Models
     {
         [Key]
         public int ID { get; set; }
-        [ForeignKey("TypeEvent")]
-        public int TypeId { get; set; }
+        //[ForeignKey("TypeEvent")]
+        //public int TypeId { get; set; }
         public string? Title {  get; set; }
         public string? Images{ get; set; }
         public string? Icon { get; set; }
         
-        public TypeEvent? TypeEvent { get; set; }
+        //public TypeEvent? TypeEvent { get; set; }
     }
 }

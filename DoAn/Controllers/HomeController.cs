@@ -17,10 +17,14 @@ namespace DoAn.Controllers
         }
         public IActionResult Index()
         {
-            var typeEvent = (from item in _context.TypeEvents select item).ToList();
+     
+            var typeFood = (from item in _context.TypeFoods select item).ToList();
 
-            ViewBag.typeEvent = typeEvent;
-            return View(typeEvent);
+        
+            ViewBag.typeFood = typeFood;
+
+            
+            return View(typeFood);
         }
 
         [Route("/test")]
@@ -28,11 +32,11 @@ namespace DoAn.Controllers
 
         public IActionResult YourAction()
         {
-            var typeEvent = (from item in _context.TypeEvents select item).ToList();
-
-            ViewBag.typeEvent = typeEvent;
-            ViewData["test"] = typeEvent;
-            return Ok(typeEvent);
+            var typeFood = (from item in _context.TypeFoods select item).ToList();
+            ViewBag.typeFood = typeFood;
+         
+            ViewData["test"] = typeFood;
+            return Ok(typeFood);
         }
         //public IActionResult Index()
         //{

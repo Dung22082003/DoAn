@@ -7,11 +7,13 @@ namespace DoAn.Models
     public class FoodMenu
     {
         [Key]
-        public long FoodID { get; set; }
+        public int FoodID { get; set; }
+        [ForeignKey("TypeFood")]
         public int TypeFoodID { get; set; }
         public string? Title { get; set; }
         public string? Contents { get; set; }
         public string? Image{ get; set; }
         public string? Cost { get; set; }
+        public TypeFood? TypeFood { get; set; }
     }
 }

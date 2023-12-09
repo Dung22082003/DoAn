@@ -7,7 +7,8 @@ namespace DoAn.Models
     public class TypeFood
     {
         [Key]
-        public long TypeFoodID { get; set; }
+        public int TypeFoodID { get; set; }
         public string? Name { get; set; } 
+        //public List<FoodMenu>? FoodMenu { get; set; }
     }
 }
