@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DoAn.Areas.Admin.Models;
+using Microsoft.EntityFrameworkCore;
 namespace DoAn.Models
 {
     public class DataContext : DbContext
@@ -22,6 +23,7 @@ namespace DoAn.Models
         public DbSet<Chef> Chefs { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Blog> Blogs { get; set; }
+        public DbSet<AdminMenu> AdminMenus { get; set; }    
       
     }
 }

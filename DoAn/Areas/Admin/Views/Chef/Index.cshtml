@@ -1,0 +1,68 @@
+﻿@using DoAn.Models;
+@model IList<Chef>
+@{
+	Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<main id="main" class="main">
+	<div class="pagetitle">
+		<h2>Danh sach nhân viên</h2>
+	</div>
+
+	<p>
+		<a type="button" class="btn btn-success" asp-area="Admin" asp-controller="Chef" asp-action="Create">
+			<i class="bi bi-file-earmark-text me-1"></i>Thêm nhân viên
+		</a>
+	</p>
+	<section class="section dashboard">
+		<div class="row">
+			<div class="col-12">
+				<div class="card recent-sales overflow-auto">
+					<div class="card-body mt-4">
+						<table class="table table-borderless database">
+							<thead>
+								<tr>
+									<th class="col-1 text-center">#</th>
+									<th class="col-3 text-centre">Tên nhân viên</th>
+									<th class="col-2 text-center">Công việc</th>
+									<th class="col-2 text-center">Hình ảnh</th>
+									<th class="col-1 text-center">Liên kết Facebook</th>
+									<th class="col-1 text-center">Liên kết Instagram</th>
+									<th class="col-2 text-center">Icon Share</th>
+									<th class="col-2 text-center">Icon Facebook</th>
+									<th class="col-2 text-center">Icon Instagram</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach (var item in Model)
+								{
+									<tr>
+										<th class="text-center" scope="row">@item.ChefID</th>
+										<td>
+											<a asp-area="Admin" asp-controller="Chef" asp-action="Details"
+											   asp-route-id=" @item.ChefID" class="text-primary">@item.Name</a>
+										</td>
+										<td class="text-center">@item.Position</td>
+										<td class="text-center">@item.Image</td>
+										<td class="text-center">@item.Fb</td>
+										<td class="text-center">@item.Ing</td>
+										<td class="text-center">@item.Icon</td>
+										<td class="text-center">@item.Icon_Fb</td>
+										<td class="text-center">@item.Icon_Ig</td>
+										<td class="text-center">
+											<a asp-area="Admin" asp-controller="Chef" asp-action="Edit"
+											   asp-route-id="@item.ChefID" class="btn btn-primary btn-sm"
+											   title="Sửa nội dung bài viết"><i class="bi bi-pencil"></i></a>
+											<a asp-area="Admin" asp-controller="Chef" asp-action="Delete"
+											   asp-route-id="@item.ChefID" class="btn btn-danger btn-sm"
+											   title="Xóa thông tin"><i class="bi bi-trash"></i></a>
+										</td>
+									</tr>
+								}
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</main>

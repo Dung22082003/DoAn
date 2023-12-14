@@ -8,8 +8,8 @@ namespace DoAn.Models
     {
         [Key]
         public int id { get; set; }
-        public string content { get; set; }
-        public string icon { get; set; }
+        public string? content { get; set; }
+        public string? icon { get; set; }
         public long about_us_id { get; set; }
     }
 }
