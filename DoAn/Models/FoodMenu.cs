@@ -15,5 +15,6 @@ namespace DoAn.Models
         public string? Image{ get; set; }
         public string? Cost { get; set; }
         public TypeFood? TypeFood { get; set; }
+      
     }
 }

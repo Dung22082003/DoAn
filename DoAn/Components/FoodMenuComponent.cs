@@ -3,7 +3,7 @@ using DoAn.Models;
 
 namespace DoAn.Components
 {
-    [ViewComponent( Name = "FoodMenuView")]
+    [ViewComponent( Name = "FoodMenu")]
     public class FoodMenuComponent : ViewComponent
 
     {

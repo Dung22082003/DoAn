@@ -1,4 +1,4 @@
-﻿@using DoAn.Models;
+﻿﻿@using DoAn.Models;
 @model IList<FoodMenu>
 @{
     var typeFood = ViewBag.typeFood;
@@ -18,7 +18,7 @@
         </div>
         <div class="tab-class text-center">
             <ul class="nav nav-pills d-inline-flex justify-content-center mb-5 wow bounceInUp" data-wow-delay="0.1s">
-                @for(int h = 0; h < typeFood.Count; h++)
+                @for (int h = 0; h < typeFood.Count; h++)
                 {
                     <li class="nav-item p-2">
                         <a class="d-flex py-2 mx-2 border border-primary bg-white rounded-pill @(h == 0 ? "active" : "")"
@@ -29,11 +29,11 @@
                 }
             </ul>
             <div class="tab-content">
-                @foreach(var fut in typeFood)
+                @foreach (var fut in typeFood)
                 {
                     <div id="tab-@fut.TypeFoodID" class="tab-pane fade show p-0 @(fut.TypeFoodID == 1 ? "active" :"")">
                         <div class="row g-4">
-                            @foreach(var item in Model.Where(m => m.TypeFoodID == fut.TypeFoodID))
+                            @foreach (var item in Model.Where(m => m.TypeFoodID == fut.TypeFoodID))
                             {
                                 <div class="col-lg-6 wow bounceInUp" data-wow-delay="0.1s">
                                     <div class="menu-item d-flex align-items-center">
