@@ -7,13 +7,24 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.13" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.9" />
+    <Compile Remove="Areas\Admin\Data\**" />
+    <Compile Remove="NewFolder\**" />
+    <Compile Remove="wwwroot\Login\**" />
+    <Content Remove="Areas\Admin\Data\**" />
+    <Content Remove="NewFolder\**" />
+    <Content Remove="wwwroot\Login\**" />
+    <EmbeddedResource Remove="Areas\Admin\Data\**" />
+    <EmbeddedResource Remove="NewFolder\**" />
+    <EmbeddedResource Remove="wwwroot\Login\**" />
+    <None Remove="Areas\Admin\Data\**" />
+    <None Remove="NewFolder\**" />
+    <None Remove="wwwroot\Login\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="NewFolder\" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.13" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.9" />
+    <PackageReference Include="SlugGenerator" Version="2.0.2" />
   </ItemGroup>
 
 </Project>
