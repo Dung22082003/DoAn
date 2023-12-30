@@ -4,11 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DoAn.Components
 {
-    [ViewComponent(Name = "MenuView")]
-    public class MenuViewComponent : ViewComponent
+    [ViewComponent(Name = "Menu")]
+    public class MenuComponent : ViewComponent
     {
         private DataContext _context;
-        public MenuViewComponent(DataContext context)
+        public MenuComponent(DataContext context)
         {
             _context = context;
         }

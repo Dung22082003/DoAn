@@ -25,6 +25,7 @@ namespace DoAn.Models
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<AdminMenu> AdminMenus { get; set; } 
         public DbSet<AdminUser> AdminUsers { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
       
     }
 }

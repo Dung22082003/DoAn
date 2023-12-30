@@ -1,0 +1,69 @@
+﻿@using DoAn.Models;
+@model Contact
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (TempData["Altermessage"] != null)
+{
+    <div id=" notification" class="alert-success" style="position:fixed; right:0px">
+        <strong>Gửi thành công</strong>
+    </div>
+}
+<script>
+    const notification = document.getElementById("notification");
+
+    setTimeout(() => {
+        notification.style.display = "none";
+    }, 3000)
+</script>
+<div class="container-fluid contact py-6 wow bounceInUp" data-wow-delay="0.1s">
+    <div class="container">
+        <div class="p-5 bg-light rounded contact-form">
+            <div class="row g-4">
+                <div class="col-12">
+                    <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Get in touch</small>
+                    <h1 class="display-5 mb-0">Contact Us For Any Queries!</h1>
+                </div>
+                <div class="col-md-6 col-lg-7">
+                        <form method="post" asp-action="create">
+                            @Html.AntiForgeryToken()
+
+                            <div class="row g-3">
+                                <div class="col-md-12">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="name" name="Name" placeholder="Your Name">
+                                        <label for="name">Your Name</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="Email" name="Email" placeholder="Email">
+                                        <label for="Email">Email</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <textarea class="form-control" placeholder="Leave a Message here" id="Message" name="Message" style="height: 150px"></textarea>
+                                        <label for="Message">Message</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100 py-3" type="submit">Send Comment</button>
+                                </div>
+                            </div>
+                        
+                        </form>
+
+                   </div>
+                <div class="col-md-6 col-lg-5">
+                    <div>
+                        <div class="d-inline-flex w-100 border border-primary p-4 rounded mb-4">
+                                <img src="/img/3308.jpg" alt="Your Image" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+            </div>
+        </div>
+    </div>

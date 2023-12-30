@@ -28,8 +28,21 @@ namespace DoAn.Controllers
         }
 
         [Route("/test")]
+        [Route("/list-{slug}-{id:int}.html", Name = "List")]
+        public IActionResult List(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
 
-
+            }
+            var list = _context.Menus.Where(m => (m.MenuID == id) && (m.IsActive == true)).Take(6).ToList();
+            if (list == null)
+            {
+                return NotFound();
+            }
+            return View(list);
+        }
         public IActionResult YourAction()
         {
             var typeFood = (from item in _context.TypeFoods select item).ToList();
@@ -46,6 +59,22 @@ namespace DoAn.Controllers
         public IActionResult Privacy()
         {
             return View();
+        }
+        [Route("/blog-{slug}-{id:long}.html", Name ="Details")]
+        public IActionResult Details(long? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var blog = _context.Blogs
+                .FirstOrDefault(m => (m.BlogId == id) && (m.IsActive == true));
+            if (blog == null)
+            {
+                return NotFound();
+
+            }   
+            return View(blog);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
