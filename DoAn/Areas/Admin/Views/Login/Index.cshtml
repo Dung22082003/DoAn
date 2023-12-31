@@ -1,5 +1,8 @@
 ﻿@using DoAn.Ultilities;
 @model DoAn.Areas.Admin.Models.AdminUser;
+@{
+    Layout = "";
+}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,6 +18,11 @@
     <!-- Favicons -->
     <link href="~/admin/assets/img/favicon.png" rel="icon">
     <link href="~/admin/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
     <!-- Vendor CSS Files -->
     <link href="~/admin/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="~/admin/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -27,12 +35,7 @@
     <!-- Template Main CSS File -->
     <link href="~/admin/assets/css/style.css" rel="stylesheet">
 
-    <!-- =======================================================
-    * Template Name: NiceAdmin - v2.4.1
-    * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-    * Author: BootstrapMade.com
-    * License: https://bootstrapmade.com/license/
-    ======================================================== -->
+
 </head>
 
 <body>
@@ -47,8 +50,8 @@
 
                             <div class="d-flex justify-content-center py-4">
                                 <a href="index.html" class="logo d-flex align-items-center w-auto">
-                                    <img src="assets/img/logo.png" alt="">
-                                    <span class="d-none d-lg-block">NiceAdmin</span>
+                                    <img src="~/admin/assets/img/Logo.jpg" alt="">
+                                    <span class="d-none d-lg-block">RestoranAdmin</span>
                                 </a>
                             </div><!-- End Logo -->
 
@@ -61,13 +64,13 @@
                                         <p class="text-center small">Enter your username & password to login</p>
                                     </div>
 
-                                    <form class="row g-3 needs-validation" asp-controller="Login" asp-action="Index" novalidate>
+                                    <form id="form" class="row g-3 needs-validation" method="post" asp-controller="Login" asp-action="Index" novalidate>
 
                                         <div class="col-12">
                                             <label for="yourUsername" class="form-label">Email</label>
                                             <div class="input-group has-validation">
-                                                <input type="text" asp-for="Email" class="form-control" id="yourUsername" required>
-                                                <div class="invalid-feedback">Please enter your username.</div>
+                                                <input type="text" asp-for="Email" class="form-control" id="yourEmail" required>
+                                                <div class="invalid-feedback">Please enter your Email.</div>
                                             </div>
                                         </div>
 
@@ -76,13 +79,11 @@
                                             <input type="password" asp-for="Password" class="form-control" id="yourPassword" required>
                                             <div class="invalid-feedback">Please enter your password!</div>
                                         </div>
-
                                         <div class="col-12 text-center text-danger">
-                                            <h6>
+                                            <h6 id="message">
                                                 @Functions._Message
                                             </h6>
                                         </div>
-
                                         <div class="col-12">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe">
@@ -93,7 +94,7 @@
                                             <button class="btn btn-primary w-100" type="submit">Login</button>
                                         </div>
                                         <div class="col-12">
-                                            <p class="small mb-0">Don't have account? <a href="/Admin/Register">Create an account</a></p>
+                                            <p class="small mb-0">Don't have account? <a href="/admin/register">Create an account</a></p>
                                         </div>
                                     </form>
 
@@ -101,10 +102,7 @@
                             </div>
 
                             <div class="credits">
-                                <!-- All the links in the footer should remain intact. -->
-                                <!-- You can delete the links only if you purchased the pro version. -->
-                                <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
+
                                 Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
                             </div>
 
@@ -122,16 +120,38 @@
     <!-- Vendor JS Files -->
     <script src="~/admin/assets/vendor/apexcharts/apexcharts.min.js"></script>
     <script src="~/admin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="~/admin/assets/vendor/chart.js/chart.min.js"></script>
+    <script src="~/admin/assets/vendor/chart.js/chart.umd.js"></script>
     <script src="~/admin/assets/vendor/echarts/echarts.min.js"></script>
     <script src="~/admin/assets/vendor/quill/quill.min.js"></script>
     <script src="~/admin/assets/vendor/simple-datatables/simple-datatables.js"></script>
     <script src="~/admin/assets/vendor/tinymce/tinymce.min.js"></script>
     <script src="~/admin/assets/vendor/php-email-form/validate.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.2/axios.min.js" integrity="sha512-b94Z6431JyXY14iSXwgzeZurHHRNkLt9d6bAHt7BZT38eqV+GyngIi/tVye4jBKPYQ2lBdRs0glww4fmpuLRwA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- Template Main JS File -->
     <script src="~/admin/assets/js/main.js"></script>
 
 </body>
 
 </html>
+
+<script>
+    const form = document.querySelector("form")
+    form.onsubmit = function (e) {
+        e.preventDefault()
+        const data = {}
+        $("#form").serializeArray().forEach(function (value) {
+            data[value.name] = value.value
+        })
+        axios.post('/login/index', data)
+            .then(response => response.data)
+            .then(data => {
+                window.location.href = document.referrer ? document.referrer : window.location.origin + "/admin"
+            })
+            .catch(err => {
+                console.log(err)
+                document.querySelector("#message").innerText = err.response.data.err
+            })
+    }
+</script>
+

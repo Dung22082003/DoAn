@@ -6,6 +6,13 @@ namespace DoAn.Areas.Admin.Controllers
     [Area("Admin")]
     public class HomeController : Controller
     {
+        public IActionResult Index()
+        {
+            if (!Functions.IsLogin())
+                return RedirectToAction("Index", "Login");
+
+            return View();
+        }
         public IActionResult Logout()
         {
             Functions._UserID = 0;
@@ -16,12 +23,6 @@ namespace DoAn.Areas.Admin.Controllers
 
             return RedirectToAction("Index", "Home");
         }
-        public IActionResult Index()
-        {
-            if (!Functions.IsLogin())
-                return RedirectToAction("Index", "Login");
-
-            return View();
-        }
+        
     }
 }
