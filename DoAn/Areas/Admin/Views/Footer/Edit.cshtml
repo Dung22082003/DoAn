@@ -1,0 +1,55 @@
+﻿@model DoAn.Models.Footer
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<main int id="main" class="main">
+    <div class="pagetitle">
+        <h2>Xác nhận sửa</h2>
+    </div>
+    <div class="container shadow p-5">
+        <div class="row pb-2">
+            <h2>Sửa</h2>
+        </div>
+
+        <form method="post" asp-action="Edit">
+            <input type="hidden" asp-for="FooterId">
+            <div asp-validation-summary="All"></div>
+            <div class="form-group col-md-6">
+                <label asp-for="Special">Special</label>
+                <input type="text" class="form-control mb-3" asp-for="Special" placeholder="Nhập Special">
+                <span asp-validation-for="Special" class=" alert-danger"></span>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label asp-for="Contact">Contact</label>
+                <input type="text" class="form-control mb-3" asp-for="Contact" placeholder="Nhập Contact">
+                <span asp-validation-for="Contact" class=" alert-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="IconContact">IconContact</label>
+                <input type="text" class="form-control mb-3" asp-for="IconContact" placeholder="Nhập IconContact">
+                <span asp-validation-for="IconContact" class=" alert-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="IconIntro">IconIntro</label>
+                <input type="text" class="form-control mb-3" asp-for="IconIntro" placeholder="Nhập IconIntro">
+                <span asp-validation-for="IconIntro" class=" alert-danger"></span>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label asp-for="Intro">Intro</label>
+                <input type="text" class="form-control mb-3" asp-for="Intro" placeholder="Nhập Intro">
+                <span asp-validation-for="Intro" class=" alert-danger"></span>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label asp-for="Gallery">Gallery</label>
+                <input type="text" class="form-control mb-3" asp-for="Gallery" placeholder="Nhập Anh">
+                <span asp-validation-for="Gallery" class=" alert-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-lg btn-primary p-2"><i class="bi bi-file-plus-fill"></i>Lưu</button>
+            <a asp-asp-controller="Menu" asp-action="Index" class="btn btn-lg btn-warning p-2"> Quay lại</a>
+        </form>
+        
+    </div>
+</main>

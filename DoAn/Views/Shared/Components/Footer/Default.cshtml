@@ -1,0 +1,60 @@
+﻿@using DoAn.Models;
+@model IList<Footer>
+<div class="container-fluid footer py-6 my-6 mb-0 bg-light wow bounceInUp" data-wow-delay="0.1s">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-item">
+                    <h1 class="text-primary">Cater<span class="text-dark">Serv</span></h1>
+                    @foreach (var db in Model)
+                    {
+                        <p class="lh-lg mb-4">@db.Intro</p>
+                    }
+                    
+                    <div class="footer-icon d-flex">
+                        @foreach (var cc in Model)
+                        {
+                            <a href="#" class="btn btn-primary btn-sm-square me-2 rounded-circle"><i class="@cc.IconIntro"></i></a>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-item">
+                    <h4 class="mb-4">Special Facilities</h4>
+                    <div class="d-flex flex-column align-items-start">
+                        @foreach (var cl in Model)
+                        {
+                            <a class="text-body mb-3" href=""><i class="fa fa-check text-primary me-2"></i>@cl.Special</a>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-item">
+                    <h4 class="mb-4">Contact Us</h4>
+                    <div class="d-flex flex-column align-items-start">
+                        @foreach (var hi in Model)
+                        {
+                            <p><i class="@hi.IconContact"></i> @hi.Contact</p>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-item">
+                    <h4 class="mb-4">Social Gallery</h4>
+                    <div class="row g-2">
+                        @foreach (var ho in Model)
+                        {
+                            <div class="col-4">
+                                <img src="@ho.Gallery" class="img-fluid rounded-circle border border-primary p-2" alt="">
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
