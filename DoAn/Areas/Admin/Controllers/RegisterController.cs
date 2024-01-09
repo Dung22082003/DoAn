@@ -7,6 +7,7 @@ using DoAn.Ultilities;
 namespace DoAn.Areas.Admin.Controllers
 {
     [Area("Admin")]
+
     public class RegisterController : Controller
     {
         private readonly DataContext _context;

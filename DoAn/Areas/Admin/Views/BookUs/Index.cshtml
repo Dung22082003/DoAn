@@ -1,0 +1,56 @@
+﻿@using DoAn.Models;
+@model IList<BookUs>
+@{
+	Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<main id="main" class="main">
+	<section class="section dashboard">
+		<div class="row">
+			<div class="col-12">
+				<div class="card">
+					<div class="card-body">
+						<table class="table table-striped">
+							<thead class="thead-dark">
+								<tr>
+									<th scope="col">ID</th>
+									<th scope="col">Tên</th>
+									<th scope="col">Email</th>
+									<th scope="col">PhoneNumber</th>
+									<th scope="col">Address</th>
+									<th scope="col">CreatedDate</th>
+									<th scope="col">AmountOfPeople</th>
+									<th scope="col">EventType</th>
+									<th scope="col">Note</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach (var item in Model)
+								{
+									<tr>
+										<td>@item.BookID</td>
+										<td>
+											<a asp-area="Admin" asp-controller="BookUs" class="text-primary">@item.Name</a>
+										</td>
+										<td>@item.Email</td>
+										<td>@item.PhoneNumber</td>
+										<td>@item.Address</td>
+										<td>@item.CreatedDate</td>
+										<td>@item.AmountOfPeople</td>
+										<td>@item.EventType</td>
+										<td>@item.Note</td>
+										<td>
+											<div class="btn-group" role="group">
+												<a href="/admin/bookus/delete/@item.BookID" class="btn btn-danger btn-sm"
+												   title="Xóa thông tin"><i class="bi bi-trash"></i></a>
+											</div>
+										</td>
+									</tr>
+								}
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</main>

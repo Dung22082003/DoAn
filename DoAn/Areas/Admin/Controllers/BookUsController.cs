@@ -5,18 +5,17 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 namespace DoAn.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class ContactController : Controller
+    public class BookUsController : Controller
     {
         private readonly DataContext _context;
-        public ContactController(DataContext context)
+        public BookUsController(DataContext context)
         {
             _context = context;
         }
         public IActionResult Index()
         {
-            var tmlist = _context.Contacts.OrderBy(m => m.ContactID).ToList();
-            return View(tmlist);
-
+            var hilist = _context.BookUs.OrderBy(m => m.BookID).ToList();
+            return View(hilist);
         }
         [HttpGet]
         public IActionResult Delete(int? id)
@@ -25,7 +24,7 @@ namespace DoAn.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            var mn = _context.Contacts.Find(id);
+            var mn = _context.BookUs.Find(id);
             if (mn == null)
             {
                 return NotFound();
@@ -33,17 +32,18 @@ namespace DoAn.Areas.Admin.Controllers
             return View(mn);
         }
 		[HttpGet]
-		[Route("/Admin/Contact/Delete/{id}")]
+		[Route("/Admin/BookUs/Delete/{id}")]
         public IActionResult Delete(int id)
         {
-            var deleContact = _context.Contacts.Find(id);
-            if (deleContact == null)
+            var deleBookUs = _context.BookUs.Find(id);
+            if (deleBookUs == null)
             {
                 return NotFound();
             }
-            _context.Contacts.Remove(deleContact);
+            _context.BookUs.Remove(deleBookUs);
             _context.SaveChanges();
-            return RedirectToAction("Index", "Contact");
+            return RedirectToAction("index", "bookus");
         }
     }
+
 }

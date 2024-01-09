@@ -27,6 +27,7 @@ namespace DoAn.Models
         public DbSet<AdminUser> AdminUsers { get; set; }
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Footer> Footer { get; set; }
+        public DbSet<BookUs> BookUs { get; set; }
       
     }
 }

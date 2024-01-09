@@ -38,8 +38,9 @@
 @await Component.InvokeAsync("ServicesView")
 @await Component.InvokeAsync("EventView")
 @await Component.InvokeAsync("FoodMenu")
+@await Component.InvokeAsync("BookUs")
 <!-- Book Us Start -->
-<div class="container-fluid contact py-6 wow bounceInUp" data-wow-delay="0.1s">
+@* <div class="container-fluid contact py-6 wow bounceInUp" data-wow-delay="0.1s">
     <div class="container">
         <div class="row g-0">
             <div class="col-1">
@@ -122,7 +123,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> *@
 <!-- Book Us End -->
 @await Component.InvokeAsync("ChefView")
 @await Component.InvokeAsync("CustomerView")

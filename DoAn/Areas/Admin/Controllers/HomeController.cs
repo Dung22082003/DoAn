@@ -9,7 +9,7 @@ namespace DoAn.Areas.Admin.Controllers
         public IActionResult Index()
         {
             if (!Functions.IsLogin())
-                return RedirectToAction("Index", "Login");
+                return RedirectToAction("Index", "/Login", new { area = "" });
 
             return View();
         }

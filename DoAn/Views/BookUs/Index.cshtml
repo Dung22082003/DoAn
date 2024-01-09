@@ -1,0 +1,69 @@
+﻿@model DoAn.Models.BookUs
+<div class="container-fluid contact py-6 wow bounceInUp" data-wow-delay="0.1s">
+    <div class="container">
+        <div class="row g-0">
+            <div class="col-1">
+                <img src="img/background-site.jpg" class="img-fluid h-100 w-100 rounded-start" style="object-fit: cover; opacity: 0.7;" alt="">
+            </div>
+            <div class="col-10">
+                <div class="border-bottom border-top border-primary bg-light py-5 px-4">
+                    <div class="text-center">
+                        <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Book Us</small>
+                        <h1 class="display-5 mb-5">Where you want Our Services</h1>
+                    </div>
+                     <form method="post" asp-action="create">
+                        @Html.AntiForgeryToken()
+                        <div class="row g-4 form">
+                            <!-- Add Name Field -->
+                            <div class="col-md-6">
+                                <input type="text" class="form-control border-primary p-2" id="Name" name="Name" placeholder="Your Name">
+                            </div>
+                            <!-- Add Event Type Field -->
+                            <div class="col-md-6">
+                                <select class="form-select border-primary p-2" aria-label="Default select example">
+                                    <option selected>Select Event Type</option>
+                                    <option value="1">Corporate Event</option>
+                                    <option value="2">Wedding</option>
+                                    <option value="3">Birthday Party</option>
+                                    <!-- Add more options as needed -->
+                                </select>
+                            </div>
+                            <!-- Add Address Field -->
+                            <div class="col-md-12">
+                                <textarea class="form-control border-primary p-2" rows="2" id="Address" name="Address" placeholder="Your Address"></textarea>
+                            </div>
+                            <!-- Add Phone Number Field -->
+                            <div class="col-md-6">
+                                <input type="tel" class="form-control border-primary p-2" id="PhoneNumber" name="PhoneNumber" placeholder="Your Phone Number">
+                            </div>
+                            <!-- Add Email Field -->
+                            <div class="col-md-6">
+                                <input type="email" class="form-control border-primary p-2" id="Email" name="Email" placeholder="Your Email">
+                            </div>
+                            <!-- Add Created Date Field -->
+                            <div class="col-md-6">
+                                <input type="date" class="form-control border-primary p-2" id="CreatedDate" name="CreatedDate" placeholder="Select Date">
+                            </div>
+                            <!-- Add Amount of People Field -->
+                            <div class="col-md-6">
+                                <input type="number" class="form-control border-primary p-2" id="AmountOfPeople" name="AmountOfPeople" placeholder="Amount of People">
+                            </div>
+                            <!-- Add Note Field -->
+                            <div class="col-12">
+                                <textarea class="form-control border-primary p-2" rows="3" id="Note" name="Note" placeholder="Note"></textarea>
+                            </div>
+                            <div class="col-12 text-center">
+                                <button type="submit" class="btn btn-primary px-5 py-3 rounded-pill">Submit Now</button>
+                            </div>
+						</div>
+					</form>
+                </div>
+            </div>
+            <div class="col-1">
+                <img src="img/background-site.jpg" class="img-fluid h-100 w-100 rounded-end" style="object-fit: cover; opacity: 0.7;" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Book Us End -->
